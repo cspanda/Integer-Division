@@ -27,7 +27,7 @@ define(function (require) {
             assert.strictEqual(actual.remainder, -5);
         },
 
-        'TestZeroQuotientPositiveRemainder': function() {
+        'TestAbsoluteValueDividendLessThanAbsoluteValueDivisor': function() {
             let actual = division.div(5,7);
             assert.strictEqual(actual.quotient, 0);
             assert.strictEqual(actual.remainder, 5);
@@ -35,10 +35,8 @@ define(function (require) {
             actual = division.div(-6,8);
             assert.strictEqual(actual.quotient, -1);
             assert.strictEqual(actual.remainder, 2);
-        },
 
-        'TestZeroQuotientNegativeRemainder': function() {
-            let actual = division.div(5,-7);
+            actual = division.div(5,-7);
             assert.strictEqual(actual.quotient, -1);
             assert.strictEqual(actual.remainder, -2);
 
