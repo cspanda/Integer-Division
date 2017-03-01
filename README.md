@@ -19,6 +19,13 @@ which checks all pairs of dividends/divisors in the userTests array inside tests
 ```javascript
 const division = require('../src/division');
 
-const result = division.div(12,4);
-console.log(`Quotient: ${result.quotient}, Remainder: ${result.remainder}`); // Quotient: 3, Remainder: 0
+try {
+    const result1 = division.div(12,4);
+    console.log(`Quotient: ${result1.quotient}, Remainder: ${result1.remainder}`); // Quotient: 3, Remainder: 0
+
+    const result2 = division.div(5,0);
+} catch(err) {
+    console.log(`${err} \n`); // DivisionByZeroError: Division by zero error.
+}
+
 ```
