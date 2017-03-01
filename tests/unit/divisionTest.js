@@ -34,42 +34,42 @@ define(function (require) {
         },
 
         'TestPositiveDividendDivisibleByNegativeDivisor': function() {
-            const actual = division.div(12,-4);
-            assert.strictEqual(actual.quotient, -3);
+            const actual = division.div(12,-3);
+            assert.strictEqual(actual.quotient, -4);
             assert.strictEqual(actual.remainder, 0);
         },
 
         'TestNegativeDividendDivisibleByPositiveDivisor': function() {
-            const actual = division.div(12,-4);
-            assert.strictEqual(actual.quotient, -3);
+            const actual = division.div(-12,2);
+            assert.strictEqual(actual.quotient, -6);
             assert.strictEqual(actual.remainder, 0);
         },
 
         'TestNegativeDividendDivisibleByNegativeDivisor': function() {
-            const actual = division.div(-12,-4);
-            assert.strictEqual(actual.quotient, 3);
+            const actual = division.div(-12,-1);
+            assert.strictEqual(actual.quotient, 12);
             assert.strictEqual(actual.remainder, 0);
         },
 
-        'TestPositiveDividendPositiveDivisor': function() {
+        'TestPositiveDividendNotDivisibleByPositiveDivisor': function() {
             const actual = division.div(6,5);
             assert.strictEqual(actual.quotient, 1);
             assert.strictEqual(actual.remainder, 1);
         },
 
-        'TestPositiveDividendNegativeDivisor': function() {
+        'TestPositiveDividendNotDivisibleByNegativeDivisor': function() {
             const actual = division.div(6,-5);
             assert.strictEqual(actual.quotient, -2);
             assert.strictEqual(actual.remainder, -4);
         },
 
-        'TestNegativeDividendPositiveDivisor': function() {
+        'TestNegativeDividendNotDivisibleByPositiveDivisor': function() {
             const actual = division.div(-6,5);
             assert.strictEqual(actual.quotient, -2);
             assert.strictEqual(actual.remainder, 4);
         },
 
-        'TestNegativeDividendNegativeDivisor': function() {
+        'TestNegativeDividendNotDivisibleByNegativeDivisor': function() {
             const actual = division.div(-6,-5);
             assert.strictEqual(actual.quotient, 1);
             assert.strictEqual(actual.remainder, -1);

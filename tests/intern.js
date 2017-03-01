@@ -42,7 +42,7 @@ define({
 	},
 
 	// Unit test suite(s) to run in each browser
-	suites: [ 'tests/unit/division' ],
+	suites: [ 'tests/unit/divisionTest' ],
 
 	// Functional test suite(s) to execute against each browser once unit tests are completed
 	functionalSuites: [ /* 'myPackage/tests/functional' */ ],

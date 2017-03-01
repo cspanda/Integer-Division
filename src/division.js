@@ -63,20 +63,20 @@ define(function(require, exports, module) {
         }
 
         /* Create an array listOfPossibleQuotients that represents the range of
-           possible quotients to iterato through (0 to abs(dividend)). If dividend
+           possible quotients to iterato through (1 to abs(dividend)). If dividend
            and divisor are of the same sign, then the quotient must be positive;
            else the quotient is negative.
         */
         let listOfPossibleQuotients;
         if(isSameSign(numerator, denominator)) {
-            listOfPossibleQuotients = [...Array(abs(numerator)).keys()];
+            listOfPossibleQuotients = [...Array(abs(numerator)).keys()].map(item => item+1);
         } else {
-            listOfPossibleQuotients = [...Array(abs(numerator)).keys()].map(item => -item);
+            listOfPossibleQuotients = [...Array(abs(numerator)).keys()].map(item => -item-1);
         }
 
         while(true) {
 
-            /* Get the middle element in the array */
+            /* Get the middle element in the array, use as a sample "quotient" */
             const median = listOfPossibleQuotients[floor(listOfPossibleQuotients.length/2)];
             /* Get the remainder of the calculation dividend - median*divisor */
             const remainder = numerator - denominator*median;
@@ -92,7 +92,17 @@ define(function(require, exports, module) {
                         divisor, so we cannot proceed any further.
                In both cases we return the remainder and quotient (median).
 
-               Else if the remainder and the dividend are different signs, then 
+               Else if the remainder and the dividend are different signs, then that means:
+                   - if dividend is negative and remainder is positive, then if we multiply
+                        our sample quotient (median) with the divisor, we have actually
+                        gone too far and are now less than the dividend (to get a positive
+                        remainder). So we do a search on the left half of the
+                        listOfPossibleQuotients array to get a smaller product to check.
+                   - if dividend is positive and remainder is negative, then if we multiply
+                        our sample quotient (median) with the divisor, we have actually
+                        gone too far and are now more than the dividend (to get a negative
+                        remainder). So we do a search on the right half of the
+                        listOfPossibleQuotients array to get a smaller product to check.
 
                */
             if(remainder === 0) {
@@ -113,9 +123,9 @@ define(function(require, exports, module) {
         }
     }
 
+    // For use in manual testing
     module.exports = {
         div,
         DivisionByZeroError
     };
-
 });

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/intern-client config=tests/intern",
-    "start": "node src/division.js"
+    "start": "node tests/user-test.js"
   },
   "keywords": [],
   "author": "",
