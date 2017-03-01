@@ -1,0 +1,16 @@
+{
+  "name": "LightStepChallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/intern-client config=tests/intern",
+    "start": "node src/division.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "intern": "^3.4.2"
+  }
+}
