@@ -7,7 +7,7 @@ npm install.
 Tests are written with chai and intern. To run tests,
 ```
 npm test
-``
+```
 
 To test the program manually, you can either call
 ```
