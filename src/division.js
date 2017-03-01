@@ -1,3 +1,4 @@
+/* For use in intern. Intern expects the AMD style of modules */
 if (typeof define !== 'function') { var define = require('amdefine')(module) }
 
 define(function(require, exports, module) {
@@ -69,9 +70,9 @@ define(function(require, exports, module) {
         */
         let listOfPossibleQuotients;
         if(isSameSign(numerator, denominator)) {
-            listOfPossibleQuotients = [...Array(abs(numerator)).keys()].map(item => item+1);
+            listOfPossibleQuotients = [...Array(abs(numerator)+1).keys()];
         } else {
-            listOfPossibleQuotients = [...Array(abs(numerator)).keys()].map(item => -item-1);
+            listOfPossibleQuotients = [...Array(abs(numerator)+1).keys()].map(item => -item);
         }
 
         while(true) {
@@ -101,8 +102,20 @@ define(function(require, exports, module) {
                    - if dividend is positive and remainder is negative, then if we multiply
                         our sample quotient (median) with the divisor, we have actually
                         gone too far and are now more than the dividend (to get a negative
-                        remainder). So we do a search on the right half of the
+                        remainder). So we do a search on the left half of the
                         listOfPossibleQuotients array to get a smaller product to check.
+
+                Else the remainder and the dividend are the same sign, which that means:
+                    - if dividend and remainder are positive, then if we multiply
+                         our sample quotient (median) with the divisor, we have actually
+                         gone not far enough and are now less than the dividend (to get a positive
+                         remainder). So we do a search on the right half of the
+                         listOfPossibleQuotients array to get a smaller product to check.
+                    - if dividend and remainder are negative, then if we multiply
+                         our sample quotient (median) with the divisor, we have actually
+                         gone not far enough and are now less than the dividend (to get a negative
+                         remainder). So we do a search on the right half of the
+                         listOfPossibleQuotients array to get a smaller product to check.
 
                */
             if(remainder === 0) {
@@ -123,7 +136,7 @@ define(function(require, exports, module) {
         }
     }
 
-    // For use in manual testing
+    /* use in manual user testing */
     module.exports = {
         div,
         DivisionByZeroError

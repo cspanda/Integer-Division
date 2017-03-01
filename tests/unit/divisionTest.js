@@ -10,7 +10,7 @@ define(function (require) {
             try{
                 let actual = division.div(5,0);
             } catch(err) {
-                assert(err instanceof division.DivisionByZeroError);
+                assert.instanceOf(err, division.DivisionByZeroError);
             }
 
             // For some reason assert.throws doesn't catch the error?
@@ -25,6 +25,26 @@ define(function (require) {
             actual = division.div(0,-5);
             assert.strictEqual(actual.quotient, 0);
             assert.strictEqual(actual.remainder, -5);
+        },
+
+        'TestZeroQuotientPositiveRemainder': function() {
+            let actual = division.div(5,7);
+            assert.strictEqual(actual.quotient, 0);
+            assert.strictEqual(actual.remainder, 5);
+
+            actual = division.div(-6,8);
+            assert.strictEqual(actual.quotient, -1);
+            assert.strictEqual(actual.remainder, 2);
+        },
+
+        'TestZeroQuotientNegativeRemainder': function() {
+            let actual = division.div(5,-7);
+            assert.strictEqual(actual.quotient, -1);
+            assert.strictEqual(actual.remainder, -2);
+
+            actual = division.div(-6,-8);
+            assert.strictEqual(actual.quotient, 0);
+            assert.strictEqual(actual.remainder, -6);
         },
 
         'TestPositiveDividendDivisibleByPositiveDivisor': function() {

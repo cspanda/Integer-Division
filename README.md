@@ -1,6 +1,6 @@
 LightStep Coding Challenge (JavaScript)
 
-To install dependencies, do an
+To install dev-dependencies, do an
 ```
 npm install
 ```
@@ -20,5 +20,5 @@ which checks all pairs of dividends/divisors in the userTests array inside tests
 const division = require('../src/division');
 
 const result = division.div(12,4);
-console.log(`Quotient: ${result.quotient}, Remainder: ${result.remainder}`); \\\ Quotient: 3, Remainder: 0
+console.log(`Quotient: ${result.quotient}, Remainder: ${result.remainder}`); \\ Quotient: 3, Remainder: 0
 ```
