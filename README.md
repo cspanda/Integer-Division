@@ -1,4 +1,4 @@
-LightStep Coding Challenge (JavaScript)
+Integer division without using the division(\) sign in JavaScript
 
 To install dev-dependencies, do an
 ```
